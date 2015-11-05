@@ -1,0 +1,39 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+repositories {
+	mavenCentral()
+    maven {
+    	name "Spigot"
+  	  	url "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
+    }
+    
+  	maven {
+  		name "BungeeCord"
+  	  	url "https://oss.sonatype.org/content/repositories/snapshots"
+    }
+    
+  	maven {
+  		name "Intake"
+  	  	url "http://maven.sk89q.com/repo/"
+    }
+}
+
+jar {
+    baseName = 'EventManager'
+    version = '1.0.0'
+}
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+dependencies {
+    compile "org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT"
+    compile "org.bukkit:bukkit:1.8.8-R0.1-SNAPSHOT"
+    compile "com.sk89q.intake:intake:4.2-SNAPSHOT"
+    testCompile group: "junit", name: "junit", version: "4.10"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.8'
+}
